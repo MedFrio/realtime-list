@@ -1,0 +1,235 @@
+/* Import de la police pour un look moderne et chaleureux */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+
+:root {
+    /* Palette de couleurs professionnelles */
+    --primary-color: #007bff; /* Bleu vibrant pour les actions principales */
+    --primary-dark: #0056b3;
+    --secondary-color: #6c757d; /* Gris pour les actions secondaires */
+    --background-light: #f4f7fa; /* Fond très clair */
+    --surface-white: #ffffff; /* Surface des cartes et éléments */
+    --border-color: #e3e8f0; /* Bordures subtiles */
+    --shadow-light: 0 4px 12px rgba(0, 0, 0, 0.05); /* Ombre douce */
+    --shadow-hover: 0 6px 16px rgba(0, 0, 0, 0.1);
+}
+
+* { 
+    box-sizing: border-box; 
+}
+
+body { 
+    font-family: 'Inter', system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; 
+    margin: 0; 
+    background: var(--background-light); 
+    color: #333; /* Texte plus foncé pour meilleure lisibilité */
+    line-height: 1.6;
+}
+
+/* --- Typographie --- */
+h1 { 
+    margin: 0; 
+    font-size: 24px; 
+    font-weight: 700; 
+    color: #212529; 
+}
+
+/* --- Header & Navigation --- */
+header { 
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center; 
+    padding: 16px 32px; /* Espacement accru */
+    background: var(--surface-white); 
+    border-bottom: 1px solid var(--border-color); 
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.03); /* Légère ombre pour le header */
+}
+
+#auth {
+    display: flex;
+    align-items: center;
+    gap: 10px; /* Utilisation de gap pour l'espacement */
+}
+
+#auth input { 
+    padding: 8px 12px; 
+    border: 1px solid var(--border-color);
+    border-radius: 6px; 
+    font-size: 14px;
+    transition: border-color 0.2s;
+}
+#auth input:focus {
+    border-color: var(--primary-color);
+    outline: none;
+}
+
+/* Style commun pour les boutons */
+button {
+    padding: 8px 16px; 
+    border: none;
+    border-radius: 6px; 
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s, box-shadow 0.2s, transform 0.1s;
+}
+
+/* Boutons principaux (login, register, add) */
+#btn-register, #btn-login, #btn-add {
+    background: var(--primary-color);
+    color: var(--surface-white);
+}
+#btn-register:hover, #btn-login:hover, #btn-add:hover {
+    background: var(--primary-dark);
+    box-shadow: var(--shadow-hover);
+}
+#btn-register:active, #btn-login:active, #btn-add:active {
+    transform: translateY(1px);
+}
+
+/* Bouton de déconnexion (secondaire/neutre) */
+#btn-logout {
+    background: var(--secondary-color);
+    color: var(--surface-white);
+}
+#btn-logout:hover {
+    background: #5a6268;
+}
+
+#whoami { 
+    margin-left: 8px; 
+    font-weight: 600; 
+    color: var(--primary-dark);
+}
+
+/* --- Contenu Principal --- */
+main { 
+    max-width: 960px; /* Augmenter la largeur pour un look pro */
+    margin: 30px auto; /* Marge supérieure plus grande */
+    padding: 0 24px; 
+}
+
+/* --- Métriques/Statistiques (Cards) --- */
+#metrics { 
+    display: flex; 
+    gap: 20px; /* Espacement uniforme */
+    padding: 15px 20px; 
+    background: var(--surface-white); 
+    border: 1px solid var(--border-color); 
+    border-radius: 12px; /* Coins plus arrondis */
+    box-shadow: var(--shadow-light);
+    font-size: 14px;
+}
+#metrics span {
+    display: flex;
+    align-items: center;
+    color: var(--secondary-color);
+}
+#metrics strong {
+    font-size: 16px;
+    color: var(--primary-color);
+    margin-left: 5px;
+}
+
+/* --- Composer (Ajouter un item) --- */
+#composer { 
+    margin: 25px 0; 
+    display: flex; 
+    gap: 12px; 
+}
+
+#composer input { 
+    flex: 1; 
+    padding: 12px 15px; 
+    border: 1px solid var(--border-color); 
+    border-radius: 8px; 
+    font-size: 16px;
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.05); /* Ombre interne subtile */
+    transition: border-color 0.2s;
+}
+#composer input:focus {
+    border-color: var(--primary-color);
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.2);
+}
+
+/* --- Liste d'Items (List) --- */
+#list { 
+    list-style: none; 
+    padding: 0; 
+    margin: 0; 
+    display: grid; 
+    gap: 10px; /* Espacement légèrement accru */
+}
+
+#list li { 
+    background: var(--surface-white); 
+    border: 1px solid var(--border-color); 
+    border-radius: 8px; 
+    padding: 12px 16px; 
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center; 
+    box-shadow: var(--shadow-light); /* Ombre pour l'effet de carte */
+    transition: box-shadow 0.3s, transform 0.3s;
+}
+#list li:hover {
+    box-shadow: var(--shadow-hover);
+    /* transform: translateY(-1px); */ /* Optionnel: léger lift au survol */
+}
+
+#list li .actions { 
+    display: flex; 
+    gap: 8px; 
+}
+
+/* Style spécifique pour le champ d'édition dans la liste */
+#list li input.edit { 
+    width: 60%; 
+    padding: 8px 10px; 
+    border: 1px solid var(--primary-color); 
+    border-radius: 6px; 
+    font-size: 14px;
+}
+
+/* Style des boutons d'action dans la liste (ex: modifier, supprimer) */
+#list li button {
+    padding: 6px 10px;
+    font-size: 12px;
+    /* Utiliser un style plus léger pour les boutons internes */
+    background: var(--background-light);
+    color: var(--secondary-color);
+    border: 1px solid var(--border-color);
+}
+#list li button:hover {
+    background: var(--border-color);
+}
+
+/* --- Logs --- */
+#logs { 
+    margin-top: 30px; 
+}
+
+#logs h3 {
+    font-size: 18px;
+    font-weight: 600;
+    color: #495057;
+    border-bottom: 2px solid var(--border-color);
+    padding-bottom: 5px;
+    margin-bottom: 10px;
+}
+
+#logbox { 
+    background: #212529; /* Fond sombre classique pour les logs (console-like) */
+    color: #e9ecef; /* Texte clair */
+    font-family: 'Consolas', 'Monaco', monospace; /* Police mono pour les logs */
+    padding: 15px; 
+    border-radius: 8px; 
+    max-height: 250px; 
+    overflow: auto; 
+    box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+/* Amélioration de l'accessibilité au niveau du focus */
+button:focus, a:focus {
+    outline: 2px solid var(--primary-color);
+    outline-offset: 2px;
+}

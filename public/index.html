@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <title>Realtime List (Local)</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link href="./styles.css" rel="stylesheet" />
+</head>
+<body>
+  <header>
+    <h1>Liste partagée</h1>
+    <div id="auth">
+      <input id="username" placeholder="pseudo" />
+      <input id="password" type="password" placeholder="mot de passe" />
+      <button id="btn-register">Créer compte</button>
+      <button id="btn-login">Se connecter</button>
+      <button id="btn-logout" style="display:none;">Se déconnecter</button>
+      <span id="whoami"></span>
+    </div>
+  </header>
+
+  <main>
+    <section id="metrics">
+      <span>Connexions actives: <strong id="conn-count">0</strong></span>
+      <span>Latence estimée: <strong id="latency">–</strong> ms</span>
+      <span>Utilisateurs connectés: <strong id="presence">–</strong></span>
+    </section>
+
+    <section id="composer">
+      <input id="new-item" placeholder="nouvel item..." maxlength="280" />
+      <button id="btn-add">Ajouter</button>
+    </section>
+
+    <ul id="list"></ul>
+
+    <section id="logs">
+      <h3>Logs</h3>
+      <pre id="logbox"></pre>
+    </section>
+  </main>
+
+  <script src="./client.js"></script>
+</body>
+</html>

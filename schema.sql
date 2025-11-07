@@ -1,0 +1,31 @@
+PRAGMA journal_mode=WAL;
+
+CREATE TABLE IF NOT EXISTS users (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  username TEXT UNIQUE NOT NULL,
+  pass_hash BLOB NOT NULL,
+  pass_salt BLOB NOT NULL,
+  created_at INTEGER NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS sessions (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  user_id INTEGER NOT NULL,
+  token TEXT UNIQUE NOT NULL,
+  issued_at INTEGER NOT NULL,
+  expires_at INTEGER NOT NULL,
+  FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE
+);
+
+CREATE TABLE IF NOT EXISTS items (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  content TEXT NOT NULL,
+  owner_id INTEGER NOT NULL,
+  created_at INTEGER NOT NULL,
+  updated_at INTEGER NOT NULL,
+  deleted INTEGER NOT NULL DEFAULT 0,
+  FOREIGN KEY (owner_id) REFERENCES users(id) ON DELETE CASCADE
+);
+
+CREATE INDEX IF NOT EXISTS idx_items_owner ON items(owner_id);
+CREATE INDEX IF NOT EXISTS idx_sessions_token ON sessions(token);

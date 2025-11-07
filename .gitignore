@@ -1,0 +1,42 @@
+# Dépendances Node
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Fichiers système / cache
+.DS_Store
+Thumbs.db
+*.log
+
+# Builds ou artefacts temporaires
+dist/
+build/
+coverage/
+.tmp/
+.cache/
+out/
+*.bak.json
+
+# Fichiers PowerShell / backup auto
+*.ps1
+*.bak
+*.swp
+
+# Dossiers IDE / éditeurs
+.vscode/
+.idea/
+*.code-workspace
+
+# Fichiers front temporaires
+frontend/node_modules/
+frontend/.parcel-cache/
+frontend/.next/
+frontend/dist/
+
+# Sauvegardes locales JSON (si tu veux ignorer l’historique des données)
+# backend/store/*.json
+
+# .env volontairement conservé (ne pas ignorer)
+# .env
